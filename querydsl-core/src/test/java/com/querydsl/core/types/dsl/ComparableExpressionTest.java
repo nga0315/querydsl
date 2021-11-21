@@ -15,11 +15,17 @@ package com.querydsl.core.types.dsl;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Date;
+import java.util.Calendar;
+
+import com.querydsl.core.DateConstant;
+
 import org.junit.Test;
 
 public class ComparableExpressionTest {
 
     private StringPath strPath = new StringPath("str");
+
 
     @Test
     public void between_start_given() {
@@ -29,6 +35,25 @@ public class ComparableExpressionTest {
     @Test
     public void between_end_given() {
         assertEquals(strPath.loe("Z"), strPath.between(null, "Z"));
+    }
+
+    @Test
+
+    public void min_max_test() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.MONTH, 0);
+        cal.set(Calendar.YEAR,  2000);
+
+        DateExpression<Date> date = DateConstant.create(new Date(cal.getTimeInMillis()));
+        Calendar cal2 = Calendar.getInstance();
+        cal2.set(Calendar.DAY_OF_MONTH, 1);
+        cal2.set(Calendar.MONTH, 9);
+        cal2.set(Calendar.YEAR,  2000);
+
+        DateExpression<Date> date2 = DateConstant.create(new Date(cal2.getTimeInMillis()));
+        System.out.println(ComparableExpressionBase.max(date, date2));
+        System.out.println(ComparableExpressionBase.min(date, date2));
     }
 
 }

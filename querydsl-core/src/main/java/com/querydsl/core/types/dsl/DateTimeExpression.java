@@ -166,6 +166,7 @@ public abstract class DateTimeExpression<T extends Comparable> extends TemporalE
         return max;
     }
 
+
     /**
      * Create a milliseconds expression (range 0-999)
      * <p>Is always 0 in HQL and JDOQL modules</p>

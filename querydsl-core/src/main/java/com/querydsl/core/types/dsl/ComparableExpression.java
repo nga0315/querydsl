@@ -387,6 +387,8 @@ public abstract class ComparableExpression<T extends Comparable> extends Compara
         return Expressions.comparableOperation(getType(), Ops.AggOps.MAX_AGG, mixin);
     }
 
+
+
     /**
      * Create a {@code nullif(this, other)} expression
      *

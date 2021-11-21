@@ -45,6 +45,7 @@ public abstract class NumberExpression<T extends Number & Comparable<?>> extends
      *
      * @return max(left, right)
      */
+    @Override
     public static <A extends Number & Comparable<?>> NumberExpression<A> max(Expression<A> left, Expression<A> right) {
         return Expressions.numberOperation(left.getType(), MathOps.MAX, left, right);
     }

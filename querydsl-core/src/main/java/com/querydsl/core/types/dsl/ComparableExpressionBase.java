@@ -13,6 +13,8 @@
  */
 package com.querydsl.core.types.dsl;
 
+import java.util.Date;
+
 import com.querydsl.core.types.ConstantImpl;
 import com.querydsl.core.types.Ops;
 import org.jetbrains.annotations.Nullable;
@@ -162,4 +164,26 @@ public abstract class ComparableExpressionBase<T extends Comparable> extends Sim
         return Expressions.comparableOperation(getType(), Ops.AggOps.MAX_AGG, mixin);
     }
 
+    /**
+     * Create a {@code max(left, right)} expression
+     *
+     * <p>Return the greater of the given values</p>
+     *
+     * @return max(left, right)
+     */
+
+    public static <A extends Comparable<?>> ComparableExpression<A> max(Expression<A> left, Expression<A> right) {
+        return Expressions.comparableOperation(left.getType(), Ops.MathOps.MAX, left, right);
+    }
+
+    /**
+     * Create a {@code min(left, right)} expression
+     *
+     * <p>Return the greater of the given values</p>
+     *
+     * @return min(left, right)
+     */
+    public static <A extends Comparable<?>> ComparableExpression<A> min(Expression<A> left, Expression<A> right) {
+        return Expressions.comparableOperation(left.getType(), Ops.MathOps.MIN, left, right);
+    }
 }
