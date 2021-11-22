@@ -13,8 +13,6 @@
  */
 package com.querydsl.core.types.dsl;
 
-import java.util.Date;
-
 import com.querydsl.core.types.ConstantImpl;
 import com.querydsl.core.types.Ops;
 import org.jetbrains.annotations.Nullable;

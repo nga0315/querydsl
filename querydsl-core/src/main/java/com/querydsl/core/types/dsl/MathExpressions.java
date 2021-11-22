@@ -164,8 +164,10 @@ public final class MathExpressions {
      *
      * @return max(left, right)
      */
-    public static <A extends Number & Comparable<?>> NumberExpression<A> max(Expression<A> left, Expression<A> right) {
-        return NumberExpression.max(left, right);
+
+
+    public static <A extends Number & Comparable<?>> ComparableExpressionBase<A> max(Expression<A> left, Expression<A> right) {
+        return ComparableExpressionBase.max(left, right);
     }
 
     /**
@@ -175,8 +177,9 @@ public final class MathExpressions {
      *
      * @return min(left, right)
      */
-    public static <A extends Number & Comparable<?>> NumberExpression<A> min(Expression<A> left, Expression<A> right) {
-        return NumberExpression.min(left, right);
+
+    public static <A extends Number & Comparable<?>> ComparableExpressionBase<A> min(Expression<A> left, Expression<A> right) {
+        return ComparableExpressionBase.min(left, right);
     }
 
     /**

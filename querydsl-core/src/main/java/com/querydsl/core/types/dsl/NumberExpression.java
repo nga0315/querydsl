@@ -38,28 +38,31 @@ public abstract class NumberExpression<T extends Number & Comparable<?>> extends
         private static final NumberExpression<Double> RANDOM = Expressions.numberOperation(Double.class, MathOps.RANDOM);
     }
 
-    /**
-     * Create a {@code max(left, right)} expression
-     *
-     * <p>Return the greater of the given values</p>
-     *
-     * @return max(left, right)
-     */
-    @Override
-    public static <A extends Number & Comparable<?>> NumberExpression<A> max(Expression<A> left, Expression<A> right) {
-        return Expressions.numberOperation(left.getType(), MathOps.MAX, left, right);
-    }
+    // /**
+    //  * Create a {@code max(left, right)} expression
+    //  *
+    //  * <p>Return the greater of the given values</p>
+    //  *
+    //  * @return max(left, right)
+    //  */
 
-    /**
-     * Create a {@code min(left, right)} expression
-     *
-     * <p>Returns the smaller of the given values</p>
-     *
-     * @return min(left, right)
-     */
-    public static <A extends Number & Comparable<?>> NumberExpression<A> min(Expression<A> left, Expression<A> right) {
-        return Expressions.numberOperation(left.getType(), MathOps.MIN, left, right);
-    }
+    // @Override
+    // public static <A extends Number & Comparable<?>> NumberExpression<A> max(Expression<A> left, Expression<A> right) {
+    //     return Expressions.numberOperation(left.getType(), MathOps.MAX, left, right);
+    // }
+
+    // /**
+    //  * Create a {@code min(left, right)} expression
+    //  *
+    //  * <p>Returns the smaller of the given values</p>
+    //  *
+    //  * @return min(left, right)
+    //  */
+
+    // @Override
+    // public static <A extends Number & Comparable<?>> NumberExpression<A> min(Expression<A> left, Expression<A> right) {
+    //     return Expressions.numberOperation(left.getType(), MathOps.MIN, left, right);
+    // }
 
     /**
      * Create a {@code random()} expression
