@@ -45,15 +45,18 @@ public class ComparableExpressionTest {
         cal.set(Calendar.MONTH, 0);
         cal.set(Calendar.YEAR,  2000);
 
-        DateExpression<Date> date = DateConstant.create(new Date(cal.getTimeInMillis()));
+        DateExpression<Date> date = DateConstant.create(cal.getTime());
         Calendar cal2 = Calendar.getInstance();
         cal2.set(Calendar.DAY_OF_MONTH, 1);
         cal2.set(Calendar.MONTH, 9);
         cal2.set(Calendar.YEAR,  2000);
 
-        DateExpression<Date> date2 = DateConstant.create(new Date(cal2.getTimeInMillis()));
+        DateExpression<Date> date2 = DateConstant.create(cal2.getTime());
         System.out.println(ComparableExpressionBase.max(date, date2));
         System.out.println(ComparableExpressionBase.min(date, date2));
+        assertEquals(ComparableExpressionBase.max(date, date2).toString(), "max("+date.toString()+","+date2.toString()+")");
+        assertEquals(ComparableExpressionBase.min(date, date2).toString(), "min("+date.toString()+","+date2.toString()+")");
+
     }
 
 }
