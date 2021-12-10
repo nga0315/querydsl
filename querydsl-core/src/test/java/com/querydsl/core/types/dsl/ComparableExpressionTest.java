@@ -38,7 +38,6 @@ public class ComparableExpressionTest {
     }
 
     @Test
-
     public void min_max_test() {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, 1);
@@ -56,6 +55,27 @@ public class ComparableExpressionTest {
         System.out.println(ComparableExpressionBase.min(date, date2));
         assertEquals(ComparableExpressionBase.max(date, date2).toString(), "max("+date.toString()+","+date2.toString()+")");
         assertEquals(ComparableExpressionBase.min(date, date2).toString(), "min("+date.toString()+","+date2.toString()+")");
+
+    }
+
+    @Test
+    public void min_max_test2() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.MONTH, 0);
+        cal.set(Calendar.YEAR,  2000);
+
+        DateExpression<Date> date = DateConstant.create(cal.getTime());
+        Calendar cal2 = Calendar.getInstance();
+        cal2.set(Calendar.DAY_OF_MONTH, 1);
+        cal2.set(Calendar.MONTH, 9);
+        cal2.set(Calendar.YEAR,  2000);
+
+        DateExpression<Date> date2 = DateConstant.create(cal2.getTime());
+        System.out.println(ComparableExpressionBase.max(date, date2));
+        System.out.println(ComparableExpressionBase.min(date, date2));
+        assertEquals(ComparableExpressionBase.max(" ", date2).toString(), "max(,"+date2.toString()+")");
+        assertEquals(ComparableExpressionBase.min(" ", date2).toString(), "min("+date.toString()+","+date2.toString()+")");
 
     }
 
